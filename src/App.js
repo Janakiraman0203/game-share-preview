@@ -13,8 +13,8 @@ function App() {
 
       // Fallback to App Store after 2 seconds if the app is not installed
       setTimeout(() => {
-        window.location.href = "https://apps.apple.com/in/app/terra-world-of-arcade-games/id6450105686";
-      }, 2000);
+        window.location.href = "https://apps.apple.com/in/app/terra-by-terrabyte/id6450105686";
+      }, 500);
 
     // For Android devices
     } else if (/android/i.test(userAgent)) {
@@ -23,12 +23,12 @@ function App() {
 
       // Fallback to Play Store after 2 seconds if the app is not installed
       setTimeout(() => {
-        window.location.href = "https://play.google.com/store/search?q=terra&c=apps&hl=en";
-      }, 2000);
+        window.location.href = "https://play.google.com/store/apps/details?id=com.terrabyte.terra";
+      }, 500);
 
     // For other devices, redirect to your website or a default URL
     } else {
-      window.location.href = "https://your-website.com"; // Replace with your default website URL
+      window.location.href = "https://www.letsterra.com/"; // Replace with your default website URL
     }
   };
   
