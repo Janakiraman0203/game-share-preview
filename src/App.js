@@ -1,5 +1,6 @@
 import './App.css';
 import { Helmet } from "react-helmet";
+import { useEffect } from 'react';
 
 function App() {
   const openAppOrRedirect = () => {
@@ -8,7 +9,7 @@ function App() {
     // For iOS devices
     if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
       // Try opening the app using Universal Link
-      window.location.href = "terra://open";  // Replace 'terra' with your actual app scheme
+      // window.location.href = "terra://open";  // Replace 'terra' with your actual app scheme
 
       // Fallback to App Store after 2 seconds if the app is not installed
       setTimeout(() => {
@@ -18,7 +19,7 @@ function App() {
     // For Android devices
     } else if (/android/i.test(userAgent)) {
       // Try opening the app using the Intent URL
-      window.location.href = "intent://open#Intent;scheme=terra;package=com.terra.app;end"; // Replace with your app package
+      // window.location.href = "intent://open#Intent;scheme=terra;package=com.terra.app;end"; // Replace with your app package
 
       // Fallback to Play Store after 2 seconds if the app is not installed
       setTimeout(() => {
@@ -31,6 +32,9 @@ function App() {
     }
   };
   
+  useEffect(()=>{
+    openAppOrRedirect()
+  },[])
   return (
     <div>
       <Helmet>
