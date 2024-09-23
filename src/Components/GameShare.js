@@ -30,7 +30,7 @@ function GameShare() {
 
     useEffect(() => {
         (async () => {
-            const result = await fetch(`http://terra-staging.letsterra.com/game/share/id/${id}`, {
+            const result = await fetch(`https://terra-staging.letsterra.com/game/share/id/${id}`, {
                 method: 'GET',
                 "Content-Type": "application/json",
             })
