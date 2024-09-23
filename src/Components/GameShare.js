@@ -7,7 +7,7 @@ function GameShare() {
     const [gameDetail, setGameDetails] = useState({})
     const openAppOrRedirect = () => {
         const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-
+        return
         // For iOS devices
         if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
             setTimeout(() => {
