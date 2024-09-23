@@ -1,60 +1,15 @@
 import './App.css';
-import { Helmet } from "react-helmet";
-import { useEffect } from 'react';
+import GameShare from './Components/GameShare';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
-  const openAppOrRedirect = () => {
-    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-    
-    // For iOS devices
-    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-      // Try opening the app using Universal Link
-      // window.location.href = "terra://open";  // Replace 'terra' with your actual app scheme
 
-      // Fallback to App Store after 2 seconds if the app is not installed
-      setTimeout(() => {
-        window.location.href = "https://apps.apple.com/in/app/terra-by-terrabyte/id6450105686";
-      }, 500);
-
-    // For Android devices
-    } else if (/android/i.test(userAgent)) {
-      // Try opening the app using the Intent URL
-      // window.location.href = "intent://open#Intent;scheme=terra;package=com.terra.app;end"; // Replace with your app package
-
-      // Fallback to Play Store after 2 seconds if the app is not installed
-      setTimeout(() => {
-        window.location.href = "https://play.google.com/store/apps/details?id=com.terrabyte.terra";
-      }, 500);
-
-    // For other devices, redirect to your website or a default URL
-    } else {
-      window.location.href = "https://www.letsterra.com/"; // Replace with your default website URL
-    }
-  };
-  
-  useEffect(()=>{
-    openAppOrRedirect()
-  },[])
   return (
-    <div>
-      <Helmet>
-        <meta property="og:title" content="janaki" />
-        <meta property="og:description" content="janaki-111" />
-        <meta property="og:image" content="https://dxovcbhhspgz7.cloudfront.net/game-icons-mvp5/beam-battles-icon.png" />
-        <meta property="og:url" content="https://client-webview-staging-b.letsterra.com/game/share" />
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="Your Website Name" />
-      </Helmet>
-      <div className="flex items-center justify-center">
-        <div className="font-bold text-5xl text-white">Hello</div>
-        <button 
-        className="bg-blue-500 text-white p-4 rounded"
-        onClick={openAppOrRedirect}
-      >
-        Open App or Redirect
-      </button>
-      </div>
-    </div>
+    <Router>
+      <Routes>
+        <Route path='/game/id/:id' element={<GameShare />} />
+      </Routes>
+    </Router>
   );
 }
 
