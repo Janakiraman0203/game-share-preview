@@ -12,6 +12,9 @@ function GameShare() {
             const result = await fetch(`https://terra-staging.letsterra.com/game/share/id/${id}`, {
                 method: 'GET',
                 "Content-Type": "application/json",
+                headers: {
+                    'Access-Control-Allow-Origin': '*',
+                  }
             })
             const gameData = await result.json()
             console.log(gameData, 90909);
