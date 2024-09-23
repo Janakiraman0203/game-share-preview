@@ -24,9 +24,9 @@ function GameShare() {
         }
     };
 
-    useEffect(() => {
-        openAppOrRedirect()
-    }, [])
+    // useEffect(() => {
+    //     openAppOrRedirect()
+    // }, [])
 
     useEffect(() => {
         (async () => {
