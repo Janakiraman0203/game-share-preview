@@ -38,7 +38,7 @@ function GameShare() {
             console.log(gameData, 90909);
             setGameDetails(gameData)
         })()
-    }, [])
+    }, [id])
     return (
         <div>
             {gameDetail &&
