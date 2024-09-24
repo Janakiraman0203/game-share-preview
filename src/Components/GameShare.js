@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet";
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import axios from "axios";
 
 function GameShare() {
     const { id } = useParams()
@@ -9,14 +10,12 @@ function GameShare() {
 
     useEffect(() => {
         (async () => {
-            const result = await fetch(`https://terra-staging.letsterra.com/game/share/id/${id}`, {
-                method: 'GET',
+            const result = await axios.get(`https://terra-staging.letsterra.com/game/share/id/${id}`, {
                 headers: {
-                    'Access-Control-Allow-Origin': '*',
                     "Content-Type": "application/json"
                 }
             })
-            const gameData = await result.json()
+            const gameData = await result.data
             console.log(gameData, 90909);
             setGameDetails(gameData)
         })()
